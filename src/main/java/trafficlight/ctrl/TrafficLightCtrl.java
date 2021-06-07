@@ -34,6 +34,10 @@ public class TrafficLightCtrl extends Observable {
 
     }
 
+     public State getCurrentState() {
+        return currentState;
+    }
+
     public static TrafficLightCtrl getInstance() { //Singleton implementation of TrafficLightCtrl
         if (instance == null) {
             instance = new TrafficLightCtrl();
@@ -41,7 +45,7 @@ public class TrafficLightCtrl extends Observable {
         return instance;
     }
 
-    public  void initStates() {
+    public void initStates() {
         greenState = new State() {
             @Override
             public State getNextState() {
@@ -94,17 +98,17 @@ public class TrafficLightCtrl extends Observable {
         previousState = yellowState;
     }
 
-    public State getGreenState() {
-        return greenState;
-    }
-
-    public State getRedState() {
-        return redState;
-    }
-
-    public State getYellowState() {
-        return yellowState;
-    }
+//    public State getGreenState() {
+//        return greenState;
+//    }
+//
+//    public State getRedState() {
+//        return redState;
+//    }
+//
+//    public State getYellowState() {
+//        return yellowState;
+//    }
 
     public void run()  {
         int intervall = 1500;
